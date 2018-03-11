@@ -7,7 +7,7 @@ const AdventureList = ({ adventures, updateAdventure, deleteAdventure, updateNam
       <Adventure
         key={adventure.id}
         {...adventure}
-        updateNameAdventure={updateNameAdventure}
+        // updateNameAdventure={updateNameAdventure}
         updateAdventure={updateAdventure}
         deleteAdventure={deleteAdventure}
       />  
