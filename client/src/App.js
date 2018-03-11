@@ -46,15 +46,19 @@ class App extends Component {
     // });
     // this.setState({ adventures });
     // debugger
-    fetch(`/api/trips/${id}`, { method: 'PUT' })
-      .then( res => res.json() )
-      .then( trip => {
-        let adventures = this.state.adventures.map( t => {
-          if (t.id === id)
-            return trip
-          return t;
-        });
-        this.setState({ adventures });
+    let trip = { name };
+    fetch(`/api/trips/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'applicaton/jason',
+        'Accept': 'aaplication/json',
+      },
+      body: JSON.stringify(name)
+     })
+     .then( res => res.json() )
+      .then(trip => {
+      const { adventures } = this.state;
+      this.setState({ adventures: adventures.filter( t => t.id !== id ) })
       })
   }
 
